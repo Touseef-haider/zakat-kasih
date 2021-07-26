@@ -1,0 +1,8 @@
+.main-link{
+    position: relative;
+}
+.badge-show{
+    position: absolute;
+    top: 5px !important;
+    /* right:-10px; */
+}
