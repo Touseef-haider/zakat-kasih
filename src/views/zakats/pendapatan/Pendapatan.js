@@ -99,7 +99,7 @@ const Pendapatan = () => {
         setModal(false)
         setAnotherOpen(!anotherOpen)
       }else{
-        dispatch(cartAction({zakatName:'Zakat Pendapatan',tahunHaul:year,total:(jumlahZakatSetahun/12).toFixed(2)}))
+        dispatch(cartAction({zakatName:'Zakat Pendapatan',tahunHaul:year,total:(jumlahZakatSetahun).toFixed(2)}))
         setModal(false)
         setAnotherOpen(!anotherOpen)
 
