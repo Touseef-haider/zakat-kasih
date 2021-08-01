@@ -159,25 +159,23 @@ const SingleCartItem = (props) =>{
 
             
         }else{
-            
+
+            console.log(Number(props.location.state[0].total).toFixed(2) * 100)
+            const tempAmount = Number(props.location.state[0].total).toFixed(2)
             createCollection({title:props.location.state[0].zakatName}).then(res=>{
                 createBill({
                     collection_id: res.results.id,
                     email: data[0].email,
                     name: data[0].firstName + " " + data[0].lastName,
-                    amount: Math.ceil((Number(props.location.state[0].total))*100),
+                    amount: tempAmount*100,
                     callback_url: "https://zakatapi.herokuapp.com/callback",
                     description: "Dana Kasih"
-                }
-                ).then(doc => {
-                    console.log(doc);
-                    console.log(JSON.stringify(doc));
+                }).then(doc => {
                     const obj = {
                         // user_id:localStorage.getItem('LOGIN_TOKEN'),
                         json_object: JSON.stringify({key:doc.results})
                     }
                     postPayment(obj).then(res=>{
-                        console.log(res)
                         if(res.results.code==1){
                             setLoading(false)
                             window.open(doc.results.url,'_blank')
@@ -196,8 +194,6 @@ const SingleCartItem = (props) =>{
            
         }
     }
-
-    console.log(props.location.state)
 
 
     return(
@@ -225,8 +221,8 @@ const SingleCartItem = (props) =>{
                 </CardHeader>
                 <CardBody>
                         {
-                            props.location.state ? props.location.state.map(state=>(
-                                <div className="d-flex align-items-center justify-content-between">
+                            props.location.state ? props.location.state.map(state=>{
+                                return <div className="d-flex align-items-center justify-content-between">
                                     <td>
                                         {state.zakatName} 
                                     </td>
@@ -240,7 +236,7 @@ const SingleCartItem = (props) =>{
                                     </td>
 
                                 </div>
-                            ))
+                            })
                             :
                             <p className="text-center">Nothing To Show</p>
                         }
