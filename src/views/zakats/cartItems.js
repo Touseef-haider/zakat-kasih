@@ -138,7 +138,7 @@ const CartItems = () =>{
                     collection_id: res.results.id,
                     email: alamat,
                     name: firstName + " " + lastName,
-                    amount: Math.ceil(Number(sum)*100),
+                    amount: (Number(sum)*100).toFixed(2),
                     callback_url: "https://zakatapi.herokuapp.com/callback",
                     description: "Dana Kasih"
                 }).then(doc => {
@@ -169,7 +169,7 @@ const CartItems = () =>{
                     collection_id: res.results.id,
                     email: data[0].email,
                     name: data[0].firstName + " " + data[0].lastName,
-                    amount: Math.ceil(Number(sum)*100),
+                    amount: (Number(sum)*100).toFixed(2),
                     callback_url: "https://zakatapi.herokuapp.com/callback",
                     description: "Dana Kasih"
                 }).then(doc => {

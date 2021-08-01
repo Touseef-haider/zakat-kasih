@@ -542,7 +542,7 @@ const Pendapatan = () => {
     if(tbayar){
       history.push('/singleCartItem',[{zakatName:'Zakat Pendapatan',tahunHaul:year,total:(tbayar)}])
     }else{
-      history.push('/singleCartItem',[{zakatName:'Zakat Pendapatan',tahunHaul:year,total:(jumlahZakatSetahun/12).toFixed(2)}])
+      history.push('/singleCartItem',[{zakatName:'Zakat Pendapatan',tahunHaul:year,total:(jumlahZakatSetahun).toFixed(2)}])
     }
 
   }

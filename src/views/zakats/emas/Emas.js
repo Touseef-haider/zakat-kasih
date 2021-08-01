@@ -287,7 +287,7 @@ const Emas = () => {
                             <Col xs="12" sm="12" md="3">
                                 <FormGroup>
                                     <FormText>Nilai (RM)</FormText>
-                                    <Input type="number" value={Math.floor(Number(nilai).toFixed(2))} disabled />
+                                    <Input type="number" value={Number(nilai).toFixed(2)} disabled />
                                 </FormGroup>
                             </Col>
 
