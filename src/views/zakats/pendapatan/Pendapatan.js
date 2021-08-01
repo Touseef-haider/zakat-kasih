@@ -102,7 +102,7 @@ const Pendapatan = () => {
         dispatch(cartAction({zakatName:'Zakat Pendapatan',tahunHaul:year,total:(jumlahZakatSetahun).toFixed(2)}))
         setModal(false)
         setAnotherOpen(!anotherOpen)
-
+// 
       }
   }
   const toggle = () => {
