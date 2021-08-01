@@ -160,14 +160,14 @@ const SingleCartItem = (props) =>{
             
         }else{
 
-            console.log(Number(props.location.state[0].total).toFixed(2) * 100)
-            const tempAmount = Number(props.location.state[0].total).toFixed(2)
+            const tempAmount = Math.ceil(Number(props.location.state[0].total) * 100)
+            console.log(tempAmount)
             createCollection({title:props.location.state[0].zakatName}).then(res=>{
                 createBill({
                     collection_id: res.results.id,
                     email: data[0].email,
                     name: data[0].firstName + " " + data[0].lastName,
-                    amount: tempAmount*100,
+                    amount: tempAmount,
                     callback_url: "https://zakatapi.herokuapp.com/callback",
                     description: "Dana Kasih"
                 }).then(doc => {
