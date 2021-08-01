@@ -165,7 +165,7 @@ const SingleCartItem = (props) =>{
                     collection_id: res.results.id,
                     email: data[0].email,
                     name: data[0].firstName + " " + data[0].lastName,
-                    amount: ((Number(props.location.state[0].total))*100),
+                    amount: Math.ceil((Number(props.location.state[0].total))*100),
                     callback_url: "https://zakatapi.herokuapp.com/callback",
                     description: "Dana Kasih"
                 }
